@@ -5,9 +5,13 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.pipeline import FeatureUnion
 from sklearn.base import BaseEstimator, TransformerMixin
-import numpy as np
+import joblib
+import os
+
+TRAINING_DATA_PATH = "data/tips_training_data.csv"
+MODEL_FEATURES_PATH = "models/features.pkl"
+MODEL_MODEL_PATH = "models/model.pkl"
 
 # Custom transformer to vectorize muscle groups as multi-hot vector
 class MuscleGroupEncoder(BaseEstimator, TransformerMixin):
@@ -53,12 +57,6 @@ def load_app_tips(filepath):
     df['muscle_groups'] = df['muscle_groups'].str.split()
     return df
 
-# Pre-filter by checking overlap
-def filter_tips_by_muscle_group(tips, user_muscles):
-    def matches(tip_muscles):
-        return any(m in tip_muscles for m in user_muscles)
-    return [tip for tip in tips if matches(tip[1])]
-
 # Train model
 def train_model(X, y):
     features = CombinedFeatures()
@@ -74,29 +72,15 @@ def predict_tip_relevance(features, model, tip_text, user_muscle_groups):
     proba = model.predict_proba(X_feat)[:,1][0]
     return proba
 
-if __name__ == "__main__":
-    # Step 1: Load and train on the training dataset
-    X_train, y_train = load_data("../data/tips_training_data.csv")
+# Load or train the model at import time (runs on startup of the app)
+if os.path.exists(MODEL_FEATURES_PATH) and os.path.exists(MODEL_MODEL_PATH):
+    features = joblib.load(MODEL_FEATURES_PATH)
+    model = joblib.load(MODEL_MODEL_PATH)
+else:
+    print("Training tips model...")
+    X_train, y_train = load_data(TRAINING_DATA_PATH)
     features, model = train_model(X_train, y_train)
-
-    # Step 2: Load tips for testing (app use case)
-    df_app = load_app_tips("../data/tips_for_app.csv")
-
-    # Step 3: Define your target muscle group(s)
-    user_muscles = ["legs"]  # You can change this dynamically
-
-    # Step 4: Filter for relevant muscle groups
-    filtered = df_app[df_app['muscle_groups'].apply(lambda mg: any(m in mg for m in user_muscles))]
-
-    # Step 5: Score and sort tips using the model
-    scored_tips = []
-    for _, row in filtered.iterrows():
-        score = predict_tip_relevance(features, model, row['tip_text'], user_muscles)
-        scored_tips.append((score, row['tip_text']))
-
-    scored_tips.sort(reverse=True)
-
-    # Step 6: Display top tips
-    print("\nTop Recommended Tips:")
-    for score, tip in scored_tips[:10]:
-        print(f"Score: {score:.3f} | Tip: {tip}")
+    os.makedirs(os.path.dirname(MODEL_FEATURES_PATH), exist_ok=True)
+    joblib.dump(features, MODEL_FEATURES_PATH)
+    joblib.dump(model, MODEL_MODEL_PATH)
+    print("Model trained and saved.")

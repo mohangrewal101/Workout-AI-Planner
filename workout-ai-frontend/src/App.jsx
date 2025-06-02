@@ -13,6 +13,8 @@ function App() {
   });
 
   const [recommendations, setRecommendations] = useState([]);
+  const [currentTip, setCurrentTip] = useState("");
+  const [tipIndex, setTipIndex] = useState(0);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -44,11 +46,36 @@ function App() {
         return { ...rec, imageUrl };
       });
       console.log("Recommendations with images:", recommendationsWithImages);
+
+      // Set the recommendations and current tip
       setRecommendations(recommendationsWithImages);
+      setCurrentTip(data.tip);
+      setTipIndex(data.tip_index);
+
     } catch (err) {
       console.error("Error fetching recommendations:", err);
     }
   };
+
+  const getNextTip = async () => {
+    try {
+      const response = await fetch("http://127.0.0.1:8000/next_tip/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          muscle_group: formData.muscle_group,
+          tip_index: tipIndex + 1,
+        }),
+      });
+
+      const data = await response.json();
+      setCurrentTip(data.tip);
+      setTipIndex(data.tip_index);
+    } catch (err) {
+      console.error("Error fetching next tip:", err);
+    }
+  };
+  
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
@@ -93,18 +120,32 @@ function App() {
                     Muscle: {rec.muscle_group} • Difficulty: {rec.difficulty} • Type: {rec.workout_type}
                   </div>
                   <img
-                      src={rec.imageUrl}
-                      alt={rec.exercise_name}
-                      className="mt-2 rounded w-full h-48 object-cover"
-                    />
+                    src={rec.imageUrl}
+                    alt={rec.exercise_name}
+                    className="mt-2 rounded w-full h-48 object-cover"
+                  />
                 </li>
               ))}
             </ul>
+          </div>
+        )}
+
+        {currentTip && (
+          <div className="mt-6">
+            <h2 className="text-xl font-semibold mb-2"> Tip:</h2>
+            <div className="p-4 bg-yellow-100 rounded text-gray-900">{currentTip}</div>
+            <button
+              onClick={getNextTip}
+              className="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            >
+              Next Tip
+            </button>
           </div>
         )}
       </div>
     </div>
   );
 }
+
 
 export default App;
