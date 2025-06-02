@@ -1,13 +1,12 @@
-import { useState } from 'react'
-import "./index.css";
+import { useState } from 'react';
+import './index.css';
 import './App.css';
 import { getExerciseImagePath } from './utils/getExerciseImage';
-
-
+import { Dumbbell } from 'lucide-react';
 
 function App() {
   const [formData, setFormData] = useState({
-    muscle_group:"",
+    muscle_group: "",
     difficulty: "",
     workout_type: "",
   });
@@ -22,9 +21,8 @@ function App() {
 
   const getRecommendations = async () => {
     const { muscle_group, difficulty, workout_type } = formData;
-
     if (!muscle_group || !difficulty || !workout_type) {
-      alert("Please fill out all fields.");
+      alert("🔥 Please complete all workout criteria before proceeding!");
       return;
     }
 
@@ -36,18 +34,12 @@ function App() {
       });
 
       const data = await response.json();
-      console.log("Raw Recommendations:", data);
 
-      // Fetch images from ExerciseDB
-      const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+      const recommendationsWithImages = data.recommendations.map((rec) => ({
+        ...rec,
+        imageUrl: getExerciseImagePath(rec.exercise_name),
+      }));
 
-      const recommendationsWithImages = data.recommendations.map((rec) => {
-        const imageUrl = getExerciseImagePath(rec.exercise_name);
-        return { ...rec, imageUrl };
-      });
-      console.log("Recommendations with images:", recommendationsWithImages);
-
-      // Set the recommendations and current tip
       setRecommendations(recommendationsWithImages);
       setCurrentTip(data.tip);
       setTipIndex(data.tip_index);
@@ -75,77 +67,106 @@ function App() {
       console.error("Error fetching next tip:", err);
     }
   };
-  
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-lg p-8 max-w-md w-full">
-        <h1 className="text-2xl font-bold mb-6 text-center">Workout Recommender</h1>
-
-        <div className="space-y-4">
-          <input
-            className="w-full p-2 border rounded"
-            placeholder="Muscle Group"
-            name="muscle_group"
-            onChange={handleChange}
-          />
-          <input
-            className="w-full p-2 border rounded"
-            placeholder="Difficulty"
-            name="difficulty"
-            onChange={handleChange}
-          />
-          <input
-            className="w-full p-2 border rounded"
-            placeholder="Workout Type"
-            name="workout_type"
-            onChange={handleChange}
-          />
+    <div className="relative min-h-screen text-white font-sans">
+      {/* Fixed background image */}
+      <div
+        className="fixed top-0 left-0 w-full h-full bg-cover bg-center -z-10"
+        style={{ backgroundImage: `url('/ui_background_images/gym-background.jpg')` }}
+      />
+  
+      {/* Dark overlay */}
+      <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-70 -z-10" />
+  
+      {/* Page content */}
+      <div className="relative z-10 flex justify-center items-start py-12 px-4 min-h-screen">
+        <div className="bg-neutral-900 p-8 rounded-3xl shadow-2xl w-full max-w-3xl">
+          <div className="text-4xl font-extrabold tracking-wide text-red-600 flex items-center justify-center mb-8 font-['Anton']">
+            <Dumbbell className="mr-3" size={36} /> PowerUp Workout Planner
+          </div>
+  
+          {/* Inputs */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <input
+              className="p-4 rounded-lg bg-gray-800 placeholder-gray-400 text-white text-lg font-semibold"
+              placeholder="Target Muscle Group (e.g., Chest, Legs)"
+              name="muscle_group"
+              onChange={handleChange}
+              spellCheck={false}
+            />
+            <input
+              className="p-4 rounded-lg bg-gray-800 placeholder-gray-400 text-white text-lg font-semibold"
+              placeholder="Workout Difficulty (Beginner, Intermediate, Advanced)"
+              name="difficulty"
+              onChange={handleChange}
+              spellCheck={false}
+            />
+            <input
+              className="p-4 rounded-lg bg-gray-800 placeholder-gray-400 text-white text-lg font-semibold"
+              placeholder="Workout Type (Strength, Cardio, HIIT)"
+              name="workout_type"
+              onChange={handleChange}
+              spellCheck={false}
+            />
+          </div>
+  
           <button
             onClick={getRecommendations}
-            className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+            className="w-full bg-red-700 hover:bg-red-800 text-white font-bold text-xl py-4 rounded-2xl transition-all duration-300 tracking-wider"
           >
-            Get Recommendations
+            Generate My Workout Plan
           </button>
+  
+          {/* Recommendations */}
+          {recommendations.length > 0 && (
+            <div className="mt-10">
+              <h2 className="text-3xl font-bold mb-5 border-b-4 border-red-600 pb-2 font-['Montserrat']">
+                Your Custom Workout Routine
+              </h2>
+              <ul className="space-y-6">
+                {recommendations.map((rec, index) => (
+                  <li key={index} className="bg-gray-900 rounded-2xl p-6 shadow-lg">
+                    <div className="text-2xl font-semibold text-red-500 mb-1 tracking-tight font-['Poppins']">
+                      {rec.exercise_name}
+                    </div>
+                    <div className="text-sm text-gray-300 mb-3 italic">
+                      Muscle Group: {rec.muscle_group} • Level: {rec.difficulty} • Mode: {rec.workout_type}
+                    </div>
+                    <div className="w-full h-80 flex justify-center items-center bg-gray-200 rounded-2xl overflow-hidden">
+                      <img
+                        src={rec.imageUrl}
+                        alt={rec.exercise_name}
+                        className="object-contain w-full h-full"
+                      />
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+  
+          {/* Tips */}
+          {currentTip && (
+            <div className="mt-10">
+              <h2 className="text-3xl font-bold mb-3 border-b-4 border-yellow-400 pb-2 font-['Montserrat'] flex items-center gap-2">
+                💪 Pro Tips For Maximizing Gains
+              </h2>
+              <div className="p-5 bg-yellow-200 text-black rounded-xl shadow-md text-base font-medium leading-relaxed font-['Open_Sans']">
+                {currentTip}
+              </div>
+              <button
+                onClick={getNextTip}
+                className="mt-5 bg-red-600 hover:bg-red-700 text-white px-5 py-3 rounded-xl text-lg font-semibold tracking-wide transition-colors duration-300"
+              >
+                Next Tip
+              </button>
+            </div>
+          )}
         </div>
-
-        {recommendations.length > 0 && (
-          <div className="mt-6">
-            <h2 className="text-xl font-semibold mb-2">Recommendations:</h2>
-            <ul className="list-disc pl-5 space-y-1">
-              {recommendations.map((rec, index) => (
-                <li key={index} className="p-4 bg-gray-50 rounded shadow">
-                  <div className="text-lg font-bold text-black">{rec.exercise_name}</div>
-                  <div className="text-sm text-gray-700">
-                    Muscle: {rec.muscle_group} • Difficulty: {rec.difficulty} • Type: {rec.workout_type}
-                  </div>
-                  <img
-                    src={rec.imageUrl}
-                    alt={rec.exercise_name}
-                    className="mt-2 rounded w-full h-48 object-cover"
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {currentTip && (
-          <div className="mt-6">
-            <h2 className="text-xl font-semibold mb-2"> Tip:</h2>
-            <div className="p-4 bg-yellow-100 rounded text-gray-900">{currentTip}</div>
-            <button
-              onClick={getNextTip}
-              className="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-            >
-              Next Tip
-            </button>
-          </div>
-        )}
       </div>
     </div>
   );
 }
-
 
 export default App;
