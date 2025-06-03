@@ -1,6 +1,5 @@
 # main.py
 # FastAPI entry point
-# TODO: Remember to figure out how to private the OpenAI API key and other sensitive data
 
 from fastapi import FastAPI
 from fastapi import Query
@@ -23,7 +22,7 @@ app = FastAPI()
 # Allow requests from your frontend (e.g., Vite dev server)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # TODO: Change this to your frontend URL in production
+    allow_origins=["https://workout-ai-planner-one.vercel.app/"], # frontend URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
