@@ -27,7 +27,7 @@ function App() {
     }
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/recommend_workouts/", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/recommend_workouts/`,{
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -51,7 +51,7 @@ function App() {
 
   const getNextTip = async () => {
     try {
-      const response = await fetch("http://127.0.0.1:8000/next_tip/", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/next_tip/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
