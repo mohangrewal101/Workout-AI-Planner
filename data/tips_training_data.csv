@@ -1,0 +1,42 @@
+tip,muscle_groups,label
+"Maintain good posture to protect your spine.","chest back",1
+"Focus on controlled movement to engage chest and back muscles effectively.","chest back",1
+"Don’t forget to stretch your chest and back after workouts.","chest back",1
+"Engage your lats fully during pulling exercises for maximum pull strength.","back",1
+"Use a full range of motion when training your back muscles.","back",1
+"Keep your shoulders relaxed when focusing on back exercises.","back shoulders",1
+"Push through your heels to stabilize during leg exercises.","legs",1
+"Keep knees aligned with your toes during squats to avoid injury.","legs",1
+"Control your breathing to maintain form in leg training.","legs",1
+"Keep elbows in a safe position during pushing exercises.","triceps shoulders chest",1
+"Gradually increase weight to avoid overloading triceps and shoulders.","triceps shoulders",1
+"Maintain wrist alignment to prevent injury while pressing.","triceps shoulders",1
+"Use controlled reps to maximize biceps contraction.","biceps",1
+"Focus on squeezing your biceps at the top of each curl.","biceps",1
+"Avoid swinging your body to keep tension on the biceps.","biceps",1
+"Warm up your biceps and triceps before lifting heavy weights.","biceps triceps",1
+"Keep your shoulder blades retracted to protect your shoulders during lifting.","shoulders back",1
+"Don’t lock your knees during leg presses to avoid injury.","legs",1
+"Use slow, controlled movement to prevent shoulder injuries.","shoulders",1
+"Maintain a neutral spine during all lifts to avoid back injury.","back",1
+
+"Maintain good posture to protect your spine.","legs",0
+"Push through your heels to stabilize during leg exercises.","chest",0
+"Keep elbows in a safe position during pushing exercises.","legs",0
+"Use controlled reps to maximize biceps contraction.","chest back",0
+"Engage your lats fully during pulling exercises for maximum pull strength.","legs",0
+"Focus on squeezing your biceps at the top of each curl.","shoulders",0
+"Don’t forget to stretch your chest and back after workouts.","biceps",0
+"Keep knees aligned with your toes during squats to avoid injury.","biceps",0
+"Maintain wrist alignment to prevent injury while pressing.","legs",0
+"Gradually increase weight to avoid overloading triceps and shoulders.","back",0
+"Control your breathing to maintain form in leg training.","biceps",0
+"Warm up your biceps and triceps before lifting heavy weights.","legs",0
+"Maintain a neutral spine during all lifts to avoid back injury.","shoulders",0
+"Keep your shoulder blades retracted to protect your shoulders during lifting.","legs",0
+"Avoid swinging your body to keep tension on the biceps.","chest back",0
+"Use slow, controlled movement to prevent shoulder injuries.","chest",0
+"Don’t lock your knees during leg presses to avoid injury.","biceps",0
+"Focus on controlled movement to engage chest and back muscles effectively.","legs",0
+"Keep shoulders relaxed when focusing on back exercises.","biceps",0
+"Maintain good posture to protect your spine.","biceps",0

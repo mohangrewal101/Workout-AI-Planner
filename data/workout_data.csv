@@ -1,0 +1,55 @@
+exercise_name,muscle_group,equipment,workout_type,difficulty,sets,reps
+
+Iso-Lateral Incline Hammer Strength Press,Chest,Machine,Hypertrophy,Intermediate,3,8-12
+Barbell Bench Press,Chest,Barbell,Strength,Beginner,4,8-12
+Incline Machine Chest Press,Chest,Machine,Hypertrophy,Intermediate,3,8-12
+Upper to Lower Cable Chest Fly,Chest,Cable,Hypertrophy,Advanced,3,10-15
+Incline Dumbbell Press,Chest,Dumbbell,Hypertrophy,Intermediate,3,8-12
+Pec Deck,Chest,Machine,Hypertrophy,Beginner,3,10-15
+Push-Ups,Chest,Bodyweight,Endurance,Beginner,2,15-20
+
+Machine Shoulder Press,Shoulders,Machine,Hypertrophy,Beginner,2,8-12
+Machine Lateral Raises,Shoulders,Machine,Hypertrophy,Intermediate,2,10-15
+Rear Delt Cable Crossover,Shoulders,Cable,Hypertrophy,Intermediate,2,10-15
+Dumbbell Shoulder Press,Shoulders,Dumbbell,Hypertrophy,Intermediate,2,8-12
+Cable Lateral Raises,Shoulders,Cable,Hypertrophy,Intermediate,2,10-15
+Rear Delt Fly Machine,Shoulders,Machine,Hypertrophy,Advanced,2,10-15
+
+
+Barbell Squat,Legs,Barbell,Strength,Intermediate,3,8-12
+Hack Squat,Legs,Machine,Hypertrophy,Advanced,3,8-12
+Leg Press,Legs,Machine,Hypertrophy,Beginner,3,8-12
+Leg Extension,Legs,Machine,Hypertrophy,Intermediate,3,10-15
+Seated Leg Curl,Legs,Machine,Hypertrophy,Intermediate,3,10-15
+Romanian Deadlift,Legs,Barbell,Strength,Advanced,3,8-12
+Standing Calf Raise,Legs,Machine,Hypertrophy,Beginner,2,15-20
+Split Squats,Legs,Dumbbell,Hypertrophy,Intermediate,3,8-12
+
+
+Pull-Ups,Back,Bodyweight,Endurance,Beginner,3,8-15
+Deadlift,Back,Barbell,Strength,Advanced,5,3-8
+Lat Pulldown,Back,Machine,Hypertrophy,Beginner,3,8-12
+Wide Grip Cable Row,Back,Machine,Hypertrophy,Intermediate,3,8-12
+Face Pulls,Back,Cable,Hypertrophy,Intermediate,2,10-15
+Assisted Pull-Ups,Back,Machine,Endurance,Beginner,2,10-15
+Cable Lat Prayers,Back,Cable,Hypertrophy,Intermediate,2,10-15
+Single Arm High Row,Back,Cable,Hypertrophy,Advanced,3,8-12
+Chest-Supported Upper Back Row,Back,Machine,Hypertrophy,Intermediate,3,8-12
+Chest-Supported Lat Row,Back,Machine,Hypertrophy,Intermediate,2,8-12
+Cable Row V-Attachment,Back,Cable,Hypertrophy,Intermediate,3,8-12
+Meadow Row,Back,Barbell,Strength,Advanced,3,8-12
+
+
+Dumbbell Bicep Curl,Biceps,Dumbbell,Hypertrophy,Beginner,2,10-15
+Preacher Curl,Biceps,Bar,Hypertrophy,Intermediate,2,10-15
+Machine Preacher Curl,Biceps,Machine,Hypertrophy,Beginner,2,10-15
+Bayesian Cable Bicep Curl,Biceps,Cable,Hypertrophy,Advanced,2,10-15
+Incline Dumbbell Curl,Biceps,Dumbbell,Hypertrophy,Intermediate,2,10-15
+Hammer Curl,Biceps,Dumbbell,Endurance,Beginner,2,10-15
+
+Tricep Dips,Triceps,Bodyweight,Endurance,Intermediate,3,12-15
+Skull Crushers,Triceps,Bar,Hypertrophy,Advanced,3,10-15
+Overhead Cable Rope Tricep Extension,Triceps,Cable,Hypertrophy,Intermediate,3,10-15
+Tricep Pushdown V-Attachment,Triceps,Cable,Endurance,Intermediate,2,10-15
+Close Grip Bench Press,Triceps,Barbell,Strength,Advanced,3,8-12
+Single Arm Tricep Pushdown,Triceps,Cable,Endurance,Intermediate,3,10-15

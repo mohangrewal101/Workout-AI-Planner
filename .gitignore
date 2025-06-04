@@ -26,9 +26,6 @@ venv/
 models/
 models/**
 
-# Data files (keep sample versions)
-*.csv
-!data/tips_sample.csv
 
 # IDE settings
 .vscode/
