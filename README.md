@@ -1,6 +1,6 @@
 # 🏋️‍♂️ Workout AI Planner
 
-Workout AI Planner is a full-stack web app that intelligently recommends workouts tailored to your fitness goals. Whether you're a beginner or advanced lifter, this app curates exercises based on **muscle group**, **difficulty level**, and **workout type** (e.g., Push, Pull, Legs). It also offers **AI-powered tips** to help you train more effectively.
+Workout AI Planner is a full-stack web app that intelligently recommends workouts tailored to your fitness goals. Whether you're a beginner or advanced lifter, this app curates exercises based on **muscle group**, **difficulty level**, and **workout type** (e.g., Hypertrophy or Strength). It also offers **AI-powered tips** to help you train more effectively.
 
 This project was built to simplify fitness planning and personalize training recommendations using a combination of machine learning and user input.
 
