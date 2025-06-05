@@ -6,7 +6,7 @@ This project was built to simplify fitness planning and personalize training rec
 
 ---
 
-# ❔ How to Use
+## ❔ How to Use
 
 List out the following:
 
