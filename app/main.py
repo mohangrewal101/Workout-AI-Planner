@@ -19,10 +19,16 @@ print("Loaded tips:", df_tips.shape)
     
 app = FastAPI()
 
+# Allow your frontend origin
+origins = [
+    "https://workout-ai-planner-one.vercel.app",
+    "http://localhost:5173"  # for local dev
+]
+
 # Allow requests from your frontend (e.g., Vite dev server)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://workout-ai-planner-one.vercel.app/"], # frontend URL
+    allow_origins=origins, # frontend URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
