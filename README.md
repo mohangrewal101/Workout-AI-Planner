@@ -16,6 +16,8 @@ List out the following:
 
 - **Workout Type: Hypertrophy, Strength** (Must be one of these types and EXACTLY AS WRITTEN)
 
+Then click **Generate My Workout Plan** and ENJOY! 💪
+
 ---
 
 ## 🚀 Features
