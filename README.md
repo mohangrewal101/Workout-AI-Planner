@@ -86,13 +86,17 @@ npm run dev
 Be sure to look through errors to see you have all the requirements for the project!
 
 📎 Project Purpose
+
 This project showcases my skills across frontend and backend development, machine learning integration, and REST API architecture. I designed Workout AI Planner to help users make faster, smarter training decisions — and to demonstrate how AI can improve daily routines like fitness.
 
 🔗 Live Demo
+
 👉 https://workout-ai-planner-one.vercel.app
 
 📬 Contact
-Made with 💪 by Mohan Grewal
+
+Made by Mohan Grewal
+
 Contact me on LinkedIn: https://www.linkedin.com/in/mohan-grewal-18605a211/
 
 
