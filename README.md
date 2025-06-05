@@ -6,6 +6,18 @@ This project was built to simplify fitness planning and personalize training rec
 
 ---
 
+# ❔ How to Use
+
+List out the following:
+
+- **Muscle Group: Biceps, Triceps, Legs, Chest, Back, Shoulders** (Must be one of these muscles and EXACTLY AS WRITTEN)
+
+- **Difficulty Level: Beginner, Intermediate, Advanced** (Must be one of these levels and EXACTLY AS WRITTEN)
+
+- **Workout Type: Hypertrophy, Strength** (Must be one of these types and EXACTLY AS WRITTEN)
+
+---
+
 ## 🚀 Features
 
 - 🎯 **Smart Workout Recommendations**  
@@ -50,6 +62,7 @@ This project was built to simplify fitness planning and personalize training rec
 - 🎨 UI improvements and animations  
 - 📸 Add more exercises with visual coverage
 - 🛠️ Add more testing
+- ❔ Add multiple muscle groups in one search
 
 ### Long-Term
 
