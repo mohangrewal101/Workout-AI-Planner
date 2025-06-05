@@ -10,11 +10,11 @@ This project was built to simplify fitness planning and personalize training rec
 
 List out the following:
 
-- **Muscle Group: Biceps, Triceps, Legs, Chest, Back, Shoulders** (Must be one of these muscles and EXACTLY AS WRITTEN)
+- **Muscle Group:** Biceps, Triceps, Legs, Chest, Back, Shoulders (Must be one of these muscles and EXACTLY AS WRITTEN)
 
-- **Difficulty Level: Beginner, Intermediate, Advanced** (Must be one of these levels and EXACTLY AS WRITTEN)
+- **Difficulty Level:** Beginner, Intermediate, Advanced (Must be one of these levels and EXACTLY AS WRITTEN)
 
-- **Workout Type: Hypertrophy, Strength** (Must be one of these types and EXACTLY AS WRITTEN)
+- **Workout Type:** Hypertrophy, Strength (Must be one of these types and EXACTLY AS WRITTEN)
 
 Then click **Generate My Workout Plan** and ENJOY! 💪
 
