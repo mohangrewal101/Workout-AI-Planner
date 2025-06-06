@@ -39,7 +39,8 @@ Then click **Generate My Workout Plan** and ENJOY! 💪
 ## 🛠️ Tech Stack
 
 **Frontend:**  
-- React + Vite  
+- React + Vite
+- Javascript  
 - Tailwind CSS  
 - Lucide Icons  
 - Hosted on Vercel
